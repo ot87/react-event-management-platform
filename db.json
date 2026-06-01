@@ -1,0 +1,72 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "React Conference 2024",
+      "description": "Annual React developers conference",
+      "category": "Technology",
+      "date": "2024-07-15",
+      "time": "09:00 AM",
+      "location": "San Francisco, CA",
+      "venue": "Convention Center",
+      "image": "https://placehold.co/400x200",
+      "organizerName": "Tech Events Inc",
+      "ticketTypes": [
+        { "id": "1", "name": "General", "price": 99, "available": 100 },
+        { "id": "2", "name": "VIP", "price": 299, "available": 20 }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Indie Music Night",
+      "description": "Live sets from emerging local bands",
+      "category": "Music",
+      "date": "2024-08-03",
+      "time": "07:30 PM",
+      "location": "Toronto, ON",
+      "venue": "The Garrison",
+      "image": "https://placehold.co/400x200",
+      "organizerName": "Northside Live",
+      "ticketTypes": [
+        { "id": "1", "name": "General", "price": 35, "available": 200 }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Startup Pitch Day",
+      "description": "Founders pitch to a panel of investors",
+      "category": "Business",
+      "date": "2024-09-12",
+      "time": "10:00 AM",
+      "location": "Toronto, ON",
+      "venue": "MaRS Centre",
+      "image": "https://placehold.co/400x200",
+      "organizerName": "Founders Collective",
+      "ticketTypes": [
+        { "id": "1", "name": "Attendee", "price": 0, "available": 150 },
+        { "id": "2", "name": "Investor", "price": 50, "available": 40 }
+      ]
+    }
+  ],
+  "bookings": [
+    {
+      "id": "1",
+      "userId": "user1",
+      "eventId": "1",
+      "eventTitle": "React Conference 2024",
+      "eventDate": "2024-07-15",
+      "tickets": [{ "type": "General", "quantity": 2, "price": 99 }],
+      "attendees": [
+        {
+          "name": "John Doe",
+          "email": "john@example.com",
+          "phone": "123-456-7890"
+        }
+      ],
+      "totalAmount": 198,
+      "status": "confirmed",
+      "bookingDate": "2024-02-01",
+      "referenceNumber": "BK123456"
+    }
+  ]
+}
