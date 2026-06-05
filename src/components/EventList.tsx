@@ -1,5 +1,5 @@
 import type { Event } from "../types";
-import EventCard from "./EventCard";
+import { EventCard } from "./EventCard";
 
 type EventListProps = {
   events: Event[];

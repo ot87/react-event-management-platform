@@ -5,7 +5,7 @@ type EventCardProps = {
   event: Event;
 };
 
-function EventCard({ event }: EventCardProps) {
+export function EventCard({ event }: EventCardProps) {
   const priceFrom = Math.min(...event.ticketTypes.map((t) => t.price));
 
   return (
@@ -26,5 +26,3 @@ function EventCard({ event }: EventCardProps) {
     </Link>
   );
 }
-
-export default EventCard;

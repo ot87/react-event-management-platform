@@ -1,25 +1,33 @@
-import { EventList } from "../components/EventList";
+import { useState } from "react";
+
 import { useFetchEvents } from "../hooks";
+import { EventList } from "../components/EventList";
+import { SearchInput } from "../components/SearchInput";
 
-function EventsPage() {
+export function EventsPage() {
   const { events, loading, error } = useFetchEvents();
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const filteredEvents = events.filter(({ title }) =>
+    title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  let content;
   if (loading) {
-    return <p>Loading...</p>;
-  }
-  if (error) {
-    return <p>{error}</p>;
-  }
-  if (events.length === 0) {
-    return <p>No events available</p>;
+    content = <p>Loading...</p>;
+  } else if (error) {
+    content = <p>{error}</p>;
+  } else if (filteredEvents.length === 0) {
+    content = <p>No events found</p>;
+  } else {
+    content = <EventList events={filteredEvents} />;
   }
 
   return (
     <>
       <h1>EventsPage</h1>
-      <EventList events={events} />
+      <SearchInput value={searchTerm} onChange={setSearchTerm} />
+      {content}
     </>
   );
 }
-
-export default EventsPage;

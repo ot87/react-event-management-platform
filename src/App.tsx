@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router";
 
-import EventsPage from "./pages/EventsPage";
+import { EventsPage } from "./pages/EventsPage";
 import BookingsPage from "./pages/BookingsPage";
 import ProfilePage from "./pages/ProfilePage";
 import Layout from "./components/Layout";
