@@ -2,8 +2,9 @@ type UpdateActionType = "UPDATE";
 
 export const UPDATE_ACTION_TYPE: UpdateActionType = "UPDATE";
 
-interface FiltersState {
+export interface FiltersState {
   date: string;
+  price: string;
 }
 export type FilterType = keyof FiltersState;
 
@@ -18,6 +19,7 @@ type FiltersAction = UpdateAction;
 
 export const initState: FiltersState = {
   date: "",
+  price: "",
 };
 
 export const filtersReducer = (state: FiltersState, action: FiltersAction) => {

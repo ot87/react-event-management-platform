@@ -1,12 +1,14 @@
 import { Link } from "react-router";
+
 import type { Event } from "../types";
+import { minPrice } from "../utils/price";
 
 type EventCardProps = {
   event: Event;
 };
 
 export function EventCard({ event }: EventCardProps) {
-  const priceFrom = Math.min(...event.ticketTypes.map((t) => t.price));
+  const priceFrom = minPrice(event);
 
   return (
     <Link
