@@ -7,6 +7,7 @@ import { EventFilters } from "../components/EventFilters";
 import { EventList } from "../components/EventList";
 import { LabeledSelect } from "../components/LabeledSelect";
 import { SearchInput } from "../components/SearchInput";
+import { AsyncBoundary } from "../components/AsyncBoundary";
 
 import { matchesDate } from "../utils/date";
 import { matchesPrice } from "../utils/price";
@@ -44,40 +45,36 @@ export function EventsPage() {
 
   const { favorites, toggleFavorite } = useFavorites();
 
-  let content;
-  if (loading) {
-    content = <p>Loading...</p>;
-  } else if (error) {
-    content = <p>{error}</p>;
-  } else if (filteredEvents.length === 0) {
-    content = <p>No events found</p>;
-  } else {
-    content = (
-      <EventList
-        events={filteredEvents}
-        favorites={favorites}
-        onToggleFavorite={toggleFavorite}
-      />
-    );
-  }
-
   return (
     <>
       <h1>EventsPage</h1>
-      <SearchInput value={searchTerm} onChange={setSearchTerm} />
-      <EventFilters
-        category={category}
-        filters={filters}
-        onCategoryChange={handleOnCategoryChange}
-        updateFilter={updateFilter}
-      />
-      <LabeledSelect
-        label="Sort"
-        options={SORT_OPTIONS}
-        value={sort}
-        onChange={setSort}
-      />
-      {content}
+      <div>
+        <SearchInput value={searchTerm} onChange={setSearchTerm} />
+        <EventFilters
+          category={category}
+          filters={filters}
+          onCategoryChange={handleOnCategoryChange}
+          updateFilter={updateFilter}
+        />
+        <LabeledSelect
+          label="Sort"
+          options={SORT_OPTIONS}
+          value={sort}
+          onChange={setSort}
+        />
+      </div>
+      <AsyncBoundary
+        loading={loading}
+        error={error}
+        isEmpty={filteredEvents.length === 0}
+        emptyMessage="No events found"
+      >
+        <EventList
+          events={filteredEvents}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
+        />
+      </AsyncBoundary>
     </>
   );
 }
