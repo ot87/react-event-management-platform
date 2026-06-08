@@ -2,30 +2,12 @@ import { LabeledSelect } from "./LabeledSelect";
 import type { FiltersState, FilterType } from "../reducers/filters.reducer";
 
 const CATEGORY_OPTIONS = [
-  {
-    value: "All",
-    label: "All",
-  },
-  {
-    value: "Technology",
-    label: "Technology",
-  },
-  {
-    value: "Music",
-    label: "Music",
-  },
-  {
-    value: "Sports",
-    label: "Sports",
-  },
-  {
-    value: "Arts",
-    label: "Arts",
-  },
-  {
-    value: "Business",
-    label: "Business",
-  },
+  { value: "All", label: "All" },
+  { value: "Technology", label: "Technology" },
+  { value: "Music", label: "Music" },
+  { value: "Sports", label: "Sports" },
+  { value: "Arts", label: "Arts" },
+  { value: "Business", label: "Business" },
 ];
 const DATE_OPTIONS = [
   { value: "", label: "Any" },
@@ -61,7 +43,7 @@ export function EventFilters({
   };
 
   return (
-    <div>
+    <div className="flex flex-wrap gap-3">
       <LabeledSelect
         label="Category"
         options={CATEGORY_OPTIONS}

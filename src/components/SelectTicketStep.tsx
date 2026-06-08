@@ -21,12 +21,15 @@ export function SelectTicketStep({
 }: SelectTicketStepProps) {
   return (
     <div>
-      <h3>Step 1: Select Tickets</h3>
+      <h3 className="text-lg font-semibold">Step 1: Select Tickets</h3>
 
-      <fieldset>
-        <legend>Ticket type</legend>
+      <fieldset className="mt-3 space-y-2">
+        <legend className="text-sm font-medium">Ticket type</legend>
         {ticketTypes.map((ticket) => (
-          <label key={ticket.id}>
+          <label
+            key={ticket.id}
+            className="flex items-center gap-2 rounded border border-gray-200 px-3 py-2 dark:border-gray-700"
+          >
             <input
               type="radio"
               name="ticketType"
@@ -34,12 +37,14 @@ export function SelectTicketStep({
               checked={ticket.id === ticketTypeId}
               onChange={() => selectTicket(ticket.id)}
             />
-            {ticket.name} - ${ticket.price} ({ticket.available} available)
+            <span>
+              {ticket.name} - ${ticket.price} ({ticket.available} available)
+            </span>
           </label>
         ))}
       </fieldset>
 
-      <label>
+      <label className="mt-4 flex items-center gap-2">
         Quantity
         <input
           type="number"
@@ -54,10 +59,11 @@ export function SelectTicketStep({
               ),
             )
           }
+          className="w-20 rounded border border-gray-300 bg-white px-2 py-1 dark:border-gray-600 dark:bg-gray-800"
         />
       </label>
 
-      <p>Total: ${total}</p>
+      <p className="mt-4 font-semibold">Total: ${total}</p>
     </div>
   );
 }

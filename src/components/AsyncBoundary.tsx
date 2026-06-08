@@ -14,15 +14,25 @@ export function AsyncBoundary({
   children,
 }: AsyncBoundaryProps) {
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <p className="py-8 text-center text-gray-500 dark:text-gray-400">
+        Loading...
+      </p>
+    );
   }
 
   if (error) {
-    return <p>{error}</p>;
+    return (
+      <p className="py-8 text-center text-red-600 dark:text-red-400">{error}</p>
+    );
   }
 
   if (isEmpty) {
-    return <p>{emptyMessage}</p>;
+    return (
+      <p className="py-8 text-center text-gray-500 dark:text-gray-400">
+        {emptyMessage}
+      </p>
+    );
   }
 
   return <>{children}</>;

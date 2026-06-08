@@ -21,6 +21,8 @@ export function SearchInput({ value, onChange }: SearchInputProps) {
       type="text"
       value={value}
       onChange={handleOnSearchChange}
+      placeholder="Search events..."
+      className="w-full rounded border border-gray-300 bg-white px-3 py-2 dark:border-gray-600 dark:bg-gray-800"
     />
   );
 }

@@ -5,9 +5,14 @@ export function ProfilePage() {
 
   return (
     <>
-      <h1>ProfilePage</h1>
-      <p>User Id: {userId}</p>
-      <p>User Name: {name}</p>
+      <h1 className="mb-4 text-2xl font-bold">Profile</h1>
+
+      <div className="max-w-sm rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+        <p className="text-sm text-gray-500 dark:text-gray-400">Name</p>
+        <p className="mb-3 font-medium">{name}</p>
+        <p className="text-sm text-gray-500 dark:text-gray-400">User ID</p>
+        <p className="font-medium">{userId}</p>
+      </div>
     </>
   );
 }

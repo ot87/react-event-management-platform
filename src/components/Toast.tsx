@@ -13,9 +13,17 @@ export function Toast({ message, onClose }: ToastProps) {
   }
 
   return createPortal(
-    <div role="status">
+    <div
+      role="status"
+      className="fixed bottom-4 right-4 z-50 flex items-center gap-3 rounded-lg bg-green-600 px-4 py-3 text-white shadow-lg"
+    >
       <span>{message}</span>
-      <button onClick={onClose} aria-label="Dismiss notification">
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Dismiss notification"
+        className="text-lg text-white/80 hover:text-white"
+      >
         ×
       </button>
     </div>,

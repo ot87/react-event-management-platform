@@ -47,9 +47,12 @@ export function EventsPage() {
 
   return (
     <>
-      <h1>EventsPage</h1>
-      <div>
-        <SearchInput value={searchTerm} onChange={setSearchTerm} />
+      <h1 className="mb-4 text-2xl font-bold">Events</h1>
+
+      <div className="mb-6 flex flex-wrap items-end gap-3">
+        <div className="min-w-50 flex-1">
+          <SearchInput value={searchTerm} onChange={setSearchTerm} />
+        </div>
         <EventFilters
           category={category}
           filters={filters}
@@ -63,6 +66,7 @@ export function EventsPage() {
           onChange={setSort}
         />
       </div>
+
       <AsyncBoundary
         loading={loading}
         error={error}

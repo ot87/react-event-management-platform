@@ -10,7 +10,7 @@ export function EventDetailPage() {
 
   return (
     <>
-      <h1>Event Details</h1>
+      <h1 className="mb-4 text-2xl font-bold">Event Details</h1>
       <AsyncBoundary
         loading={loading}
         error={error}

@@ -8,7 +8,7 @@ type BookingListProps = {
 
 export function BookingList({ bookings, onCancel }: BookingListProps) {
   return (
-    <div>
+    <div className="grid gap-4 sm:grid-cols-2">
       {bookings.map((booking) => (
         <BookingCard key={booking.id} booking={booking} onCancel={onCancel} />
       ))}
