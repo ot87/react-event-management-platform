@@ -1,6 +1,9 @@
 import { NavLink, Outlet } from "react-router";
+import { useTheme } from "../hooks";
 
 function Layout() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
     <div>
       <nav>
@@ -23,6 +26,10 @@ function Layout() {
           Profile
         </NavLink>
       </nav>
+
+      <button type="button" onClick={toggleTheme}>
+        {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+      </button>
 
       <Outlet />
     </div>

@@ -12,6 +12,7 @@ import { Toast } from "./Toast";
 import { areAttendeesValid } from "../utils/validation";
 import { generateReferenceNumber } from "../utils/booking";
 import { toISO } from "../utils/date";
+import { useUser } from "../hooks";
 
 interface BookingFlowProps {
   event: Event;
@@ -20,6 +21,7 @@ interface BookingFlowProps {
 type SubmitStatus = "idle" | "submitting" | "success" | "error";
 
 export function BookingFlow({ event }: BookingFlowProps) {
+  const { userId } = useUser();
   const { booking, next, back, selectTicket, setQuantity, updateAttendee } =
     useBookingReducer(event.ticketTypes[0].id);
 
@@ -42,7 +44,7 @@ export function BookingFlow({ event }: BookingFlowProps) {
 
     try {
       await createBooking({
-        userId: "user1",
+        userId,
         eventId: event.id,
         eventTitle: event.title,
         eventDate: event.date,

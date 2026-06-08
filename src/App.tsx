@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 import { BookingsPage } from "./pages/BookingsPage";
 import { EventDetailPage } from "./pages/EventDetailPage";
 import { EventsPage } from "./pages/EventsPage";
-import ProfilePage from "./pages/ProfilePage";
+import { ProfilePage } from "./pages/ProfilePage";
 import Layout from "./components/Layout";
 
 function App() {

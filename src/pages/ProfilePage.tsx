@@ -1,5 +1,13 @@
-function ProfilePage() {
-  return <h1>ProfilePage</h1>;
-}
+import { useUser } from "../hooks";
 
-export default ProfilePage;
+export function ProfilePage() {
+  const { userId, name } = useUser();
+
+  return (
+    <>
+      <h1>ProfilePage</h1>
+      <p>User Id: {userId}</p>
+      <p>User Name: {name}</p>
+    </>
+  );
+}
