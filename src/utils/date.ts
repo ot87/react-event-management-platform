@@ -6,6 +6,10 @@ export function toISO(date: Date): string {
   return `${year}-${month}-${day}`;
 }
 
+export function isUpcoming(eventDate: string): boolean {
+  return eventDate >= toISO(new Date());
+}
+
 export function matchesDate(eventDate: string, dateFilter: string): boolean {
   if (!dateFilter) {
     return true;
